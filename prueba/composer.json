@@ -1,0 +1,5 @@
+{
+    "require": {
+        "phptal/phptal": "^1.9"
+    }
+}

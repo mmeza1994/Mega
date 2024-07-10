@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <title>Lista de Artículos</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!--script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-XXXXXXXXXX');
+    </script-->
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.php">
+        <img src="img/logo.png" width="30" height="30" class="d-inline-block align-top" alt=""/>
+        Noticias
+    </a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="index.php">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="insert.php">Insertar Artículo</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="new_journalist.php">Agregar Periodista</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <h1>Lista de Artículos</h1>
+    <a href="insert.php" class="btn btn-primary mb-3">Insertar Nuevo Artículo</a>
+    <a href="new_journalist.php" class="btn btn-secondary mb-3">Agregar Nuevo Periodista</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Contenido</th>
+                <th>Autor</th>
+                <th>Fecha</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody tal:repeat="articulo articulos">
+            <tr>
+                <td tal:content="articulo/titulo"></td>
+                <td tal:content="articulo/contenido"></td>
+                <td tal:content="articulo/periodista"></td>
+                <td tal:content="articulo/fecha_publicacion"></td>
+                <td>
+                    <a href="edit_article.php?id=${articulo/id}" class="btn btn-warning btn-sm">Editar</a>
+                    <a href="delete_article.php?id=${articulo/id}" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="mt-5">
+        <h2>Video del Artículo</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/RXGA87_m9q0" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
